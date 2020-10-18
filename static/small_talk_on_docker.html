@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Small Talk on Docker</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="file://d:\Python27\lib\site-packages\landslide\themes\default\css\print.css">
+    <link rel="stylesheet" media="screen, projection" href="file://d:\Python27\lib\site-packages\landslide\themes\default\css\screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="file://d:\Python27\lib\site-packages\landslide\themes\default\js\slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Small Talk on Docker</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>About me</h1></header>
+            
+            
+            <section><p>Baohua Yang, IBM researcher on datacenter networking. </p>
+<p>His interests include:</p>
+<ul>
+<li>High performance issues</li>
+<li>Network security</li>
+<li>Distributed systems</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Agenda</h1></header>
+            
+            
+            <section><ul>
+<li>Container</li>
+<li>Docker</li>
+<li>Component</li>
+<li>Key Projects</li>
+<li>Q&amp;A</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Container (since 1982)</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Prior Art</h1></header>
+            
+            
+            <section><ul>
+<li>FreeBSD jails (2000)</li>
+<li>Solaris Containers (2004)</li>
+<li>OpenVZ (2005)</li>
+<li>LXC (?)</li>
+</ul>
+<p><img src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\container.png" alt="Drawing" style="width: 600px;"/></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Containerization Technologies</h1></header>
+            
+            
+            <section><ul>
+<li>Isolation<ul>
+<li>File</li>
+<li>User/Group</li>
+<li>PID</li>
+<li>Network</li>
+<li>IPC</li>
+</ul>
+</li>
+<li>Resource Restriction<ul>
+<li>CPU</li>
+<li>Memory</li>
+<li>IO</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Docker (since 2013)</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>What's Old</h1></header>
+            
+            
+            <section><p><img alt="linux" src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\linux.jpg" /></p>
+<ul>
+<li>libvirt</li>
+<li>LXC</li>
+<li>systemd-nspawn</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>What's New</h1></header>
+            
+            
+            <section><p><img alt="docker" src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\docker.png" /></p>
+<ul>
+<li>UFS (brought in)</li>
+<li>API</li>
+<li>Version Management(Dockerfile, Registry)</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Image</h1></header>
+            
+            
+            <section><p><img src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\image.jpg" alt="Drawing" style="width: 600px;"/></p>
+<ul>
+<li>aufs、devicemapper、btrfs</li>
+<li>/var/lib/docker/</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Container</h1></header>
+            
+            
+            <section><p><img src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\image.jpg" alt="Drawing" style="width: 600px;"/></p>
+<ul>
+<li>Running 'image' with writable layer.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Repository</h1></header>
+            
+            
+            <section><p><img src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\repo_registry.png" alt="Drawing" style="width: 600px;"/></p>
+<ul>
+<li>Store images, like Git Repo.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Key Projects</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>CoreOS</h1></header>
+            
+            
+            <section><p><img alt="coreos" src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\coreos.jpg" /></p>
+<p>Based on Chrome OS, a minimal Linux-based operating system aimed at large-scale server deployments.</p>
+<ul>
+<li>Low resource requirement (114 MB)</li>
+<li>Consistent update</li>
+<li>Every program in single container</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Etcd</h1></header>
+            
+            
+            <section><p><img src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\etcd.png" alt="Drawing" style="width: 400px;"/></p>
+<p>A highly available, distributed key value store.</p>
+<ul>
+<li>Simple, curl-able API (HTTP + JSON)</li>
+<li>Optional SSL client cert authentication</li>
+<li>Benchmarked 1000s of writes/s per instance</li>
+<li>Properly distributed using Raft protocol</li>
+<li>Keys support TTL</li>
+<li>Atomic test and set</li>
+<li>Easily listen for changes to a prefix via HTTP long-polling</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>consul</h1></header>
+            
+            
+            <section><p><img alt="cousul" src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\cousul.png" /></p>
+<p>Tool for service discovery, monitoring and configuration.</p>
+<ul>
+<li>Service Discovery</li>
+<li>Health Checking</li>
+<li>Key/Value Storage</li>
+<li>Multi-Datacenter</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Confd</h1></header>
+            
+            
+            <section><p>A configuration management tool built on top of etcd.</p>
+<ul>
+<li>Sync configuration files</li>
+<li>Reloading applications</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Fleet</h1></header>
+            
+            
+            <section><p><img alt="fleet" src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\fleet.png" /></p>
+<p>CoreOS's cluster management system. On top of systemd, to manage services on server in cluster transparently.</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="o">[</span>Unit<span class="o">]</span>
+<span class="lineno"> 2</span> <span class="nv">Description</span><span class="o">=</span>My Service
+<span class="lineno"> 3</span> <span class="nv">Requires</span><span class="o">=</span>docker.service
+<span class="lineno"> 4</span> <span class="nv">After</span><span class="o">=</span>docker.service
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span> <span class="o">[</span>Service<span class="o">]</span>
+<span class="lineno"> 7</span> <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/docker run busybox /bin/sh -c <span class="s2">&quot;while true; do echo Hello World; sleep 1; done&quot;</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="o">[</span>Install<span class="o">]</span>
+<span class="lineno">10</span> <span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Fig</h1></header>
+            
+            
+            <section><p><img alt="Fig" src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\fig.png" /></p>
+<p>Fast, isolated development environments using Docker.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="l-Scalar-Plain">web</span><span class="p-Indicator">:</span>
+<span class="lineno">2</span>   <span class="l-Scalar-Plain">build</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">.</span>
+<span class="lineno">3</span>   <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python app.py</span>
+<span class="lineno">4</span>   <span class="l-Scalar-Plain">links</span><span class="p-Indicator">:</span>
+<span class="lineno">5</span>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">db</span>
+<span class="lineno">6</span>   <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+<span class="lineno">7</span>    <span class="p-Indicator">-</span> <span class="s">&quot;8000:8000&quot;</span>
+<span class="lineno">8</span> <span class="l-Scalar-Plain">db</span><span class="p-Indicator">:</span>
+<span class="lineno">9</span>   <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">postgres</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Libcontainer</h1></header>
+            
+            
+            <section><ul>
+<li>Unify the API for container's drivers</li>
+<li>Combine cgroups，capability，namespaces，apparmor and seLinux</li>
+<li>Replace LXC</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Libchan</h1></header>
+            
+            
+            <section><p>Channel for network services</p>
+<ul>
+<li>Simple message passing</li>
+<li>Synchronization for concurrent programming</li>
+<li>Nesting: channels can send channels</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Libswarm</h1></header>
+            
+            
+            <section><p><img src="file://E:\My Documents\Dropbox\CRL\Seminar\docker\libswarm.png" alt="Drawing" style="width: 600px;"/></p>
+<ul>
+<li>A toolkit for composing network services.</li>
+<li>Or a communication middleware</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: docker.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Q&amp;A?</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="docker.md">docker.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source:  -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="page_number">
+              /23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Small Talk on Docker</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">About me</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Agenda</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">Container (since 1982)</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Prior Art</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Containerization Technologies</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Docker (since 2013)</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">What's Old</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">What's New</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Image</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Container</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Repository</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Key Projects</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">CoreOS</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Etcd</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">consul</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Confd</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Fleet</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">Fig</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Libcontainer</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Libchan</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">Libswarm</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">Q&amp;A?</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
