@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="yeasy@github">
+    <meta name="author" content="https://yeasy.github.io/static/reaction.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reaction Trainer</title>
     <style>
@@ -59,6 +59,14 @@
             font-size: 1rem;
             visibility: hidden;
             margin-top: 10px;
+            text-align: center;
+        }
+        #completionMessage {
+            color: #27ae60;
+            font-size: 1rem;
+            visibility: hidden;
+            margin-top: 10px;
+            text-align: center;
         }
         #buttons {
             margin-top: 20px;
@@ -82,6 +90,9 @@
         }
         button:active {
             transform: scale(0.95);
+        }
+        #resetBtn {
+            background: #e74c3c;
         }
         @media (max-width: 600px) {
             #arrow {
@@ -115,10 +126,11 @@
             <input type="number" id="intervalInput" value="1000" min="100" max="5000"> ms
         </div>
         <div id="errorMessage">请输入有效的数值范围。</div>
+        <div id="completionMessage" style="text-align: center;">本轮训练完成！</div>
     </div>
     <div id="buttons">
         <button id="startPauseBtn">Start</button>
-        <button id="resetBtn" style="background: #e74c3c;">Reset</button>
+        <button id="resetBtn">Reset</button>
     </div>
 
     <script>
@@ -128,6 +140,7 @@
         let resetBtn = document.getElementById('resetBtn');
         let startPauseBtn = document.getElementById('startPauseBtn');
         let errorMessage = document.getElementById('errorMessage');
+        let completionMessage = document.getElementById('completionMessage');
         let defaultCountdown = parseInt(countdownElement.value); // Default countdown value
         const defaultInterval = parseInt(intervalElement.value); // Default interval value
         let countdown = defaultCountdown;
@@ -169,6 +182,7 @@
                 countdownTimestamp = null;
                 startPauseBtn.textContent = 'Pause';
                 defaultCountdown = parseInt(countdownElement.value); // Update default countdown to user-set value
+                completionMessage.style.visibility = 'hidden';
 
                 function update(timestamp) {
                     if (!running) return;
@@ -206,6 +220,10 @@
                             stopTimer();
                             startPauseBtn.textContent = 'Start';
                             countdownElement.value = defaultCountdown; // Reset countdown to initial value
+                            completionMessage.style.visibility = 'visible';
+                            setTimeout(() => {
+                                completionMessage.style.visibility = 'hidden';
+                            }, 2000);
                             return;
                         }
                         countdownTimestamp = timestamp;
@@ -230,6 +248,7 @@
             arrowElement.textContent = '⬆'; // Reset arrow to default pointing up
             previousTimestamp = null; // Clear the previous timestamp to avoid skipping time
             startPauseBtn.textContent = 'Start';
+            completionMessage.style.visibility = 'hidden';
         }
 
         function toggleStartPause() {
@@ -278,6 +297,6 @@
         });
 
     </script>
-<p style="font-size: 1.5rem; margin-top: 30px; text-align: center;">跟随箭头，做出对应击球动作：正手高、低；反手高、低</p>
+<p style="font-size: 1.5rem; margin-top: 30px; text-align: center;">跟随箭头，做出对应击球动作：正反手高+低</p>
 </body>
 </html>
