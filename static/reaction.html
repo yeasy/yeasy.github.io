@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="yeasy@github">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Trainer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+        }
+        #arrow {
+            font-size: 8rem;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 8rem;
+            height: 8rem;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #countdownContainer {
+            font-size: 2rem;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .inputGroup {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+        #countdownInput, #intervalInput { 
+            width: 120px;
+            font-size: 2rem;
+            text-align: center;
+            padding: 5px;
+            border: 2px solid #7f8fa6;
+            border-radius: 8px;
+        }
+        #countdownInput.invalid, #intervalInput.invalid {
+            border-color: #e74c3c;
+            background-color: #fdecea;
+        }
+        #errorMessage {
+            color: #e74c3c;
+            font-size: 1rem;
+            visibility: hidden;
+            margin-top: 10px;
+        }
+        #buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #0984e3;
+            color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #74b9ff;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        @media (max-width: 600px) {
+            #arrow {
+                font-size: 6rem;
+                width: 6rem;
+                height: 6rem;
+            }
+            #countdownContainer {
+                font-size: 1.5rem;
+                gap: 10px;
+            }
+            #countdownInput, #intervalInput { font-size: 1.5rem; width: 80px; }
+            button {
+                font-size: 1.2rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="arrow">
+        ⬆ <!-- Default arrow pointing up -->
+    </div>
+    <div id="countdownContainer">
+        <div class="inputGroup">
+            <label for="countdownInput">时长</label>
+            <input type="number" id="countdownInput" value="60" min="1" max="999"> s
+        </div>
+        <div class="inputGroup">
+            <label for="intervalInput">间隔</label>
+            <input type="number" id="intervalInput" value="1000" min="100" max="5000"> ms
+        </div>
+        <div id="errorMessage">请输入有效的数值范围。</div>
+    </div>
+    <div id="buttons">
+        <button id="startPauseBtn">Start</button>
+        <button id="resetBtn" style="background: #e74c3c;">Reset</button>
+    </div>
+
+    <script>
+        let countdownElement = document.getElementById('countdownInput');
+        let intervalElement = document.getElementById('intervalInput');
+        let arrowElement = document.getElementById('arrow');
+        let resetBtn = document.getElementById('resetBtn');
+        let startPauseBtn = document.getElementById('startPauseBtn');
+        let errorMessage = document.getElementById('errorMessage');
+        let defaultCountdown = parseInt(countdownElement.value); // Default countdown value
+        const defaultInterval = parseInt(intervalElement.value); // Default interval value
+        let countdown = defaultCountdown;
+        let interval = defaultInterval;
+        let running = false;
+        let previousArrowIndex = -1;
+        let previousTimestamp = null;
+        let countdownTimestamp = null;
+
+        // Arrow symbols pointing to different directions, using straight Unicode arrows for better visual consistency
+        const arrows = ['↙', '↘', '↖', '↗']; // Left-down, Right-down, Left-up, Right-up
+
+        function startTimer() {
+            // Check if countdown and interval values are within range
+            if (countdown < 1 || countdown > 999) {
+                countdownElement.classList.add('invalid');
+                errorMessage.textContent = '时长应在 1 到 999 之间';
+                errorMessage.style.visibility = 'visible';
+                setTimeout(() => {
+                    errorMessage.style.visibility = 'hidden';
+                    countdownElement.classList.remove('invalid');
+                }, 2000);
+                return;
+            }
+            if (interval < 100 || interval > 5000) {
+                intervalElement.classList.add('invalid');
+                errorMessage.textContent = '间隔应在 100 到 5000 之间';
+                errorMessage.style.visibility = 'visible';
+                setTimeout(() => {
+                    errorMessage.style.visibility = 'hidden';
+                    intervalElement.classList.remove('invalid');
+                }, 2000);
+                return;
+            }
+
+            if (!running) {
+                running = true;
+                previousTimestamp = null;
+                countdownTimestamp = null;
+                startPauseBtn.textContent = 'Pause';
+                defaultCountdown = parseInt(countdownElement.value); // Update default countdown to user-set value
+
+                function update(timestamp) {
+                    if (!running) return;
+                    if (previousTimestamp === null) {
+                        previousTimestamp = timestamp;
+                    }
+                    if (countdownTimestamp === null) {
+                        countdownTimestamp = timestamp;
+                    }
+                    const elapsed = timestamp - previousTimestamp;
+                    const countdownElapsed = timestamp - countdownTimestamp;
+
+                    // Update interval and countdown in real-time
+                    interval = parseInt(intervalElement.value);
+                    countdown = parseInt(countdownElement.value);
+
+                    if (elapsed >= interval) {
+                        // Randomly select an arrow direction, ensuring it is different from the previous one
+                        let randomIndex;
+                        do {
+                            randomIndex = Math.floor(Math.random() * arrows.length);
+                        } while (randomIndex === previousArrowIndex);
+                        previousArrowIndex = randomIndex;
+                        arrowElement.textContent = arrows[randomIndex];
+                        previousTimestamp = timestamp;
+                    }
+
+                    if (countdownElapsed >= 1000) {
+                        // Update countdown every second
+                        countdown--;
+                        countdownElement.value = countdown;
+
+                        // Stop timer when countdown reaches zero
+                        if (countdown <= 0) {
+                            stopTimer();
+                            startPauseBtn.textContent = 'Start';
+                            countdownElement.value = defaultCountdown; // Reset countdown to initial value
+                            return;
+                        }
+                        countdownTimestamp = timestamp;
+                    }
+                    requestAnimationFrame(update);
+                }
+
+                requestAnimationFrame(update);
+            }
+        }
+
+        function stopTimer() {
+            running = false;
+        }
+
+        function resetTimer() {
+            stopTimer();
+            countdown = defaultCountdown;
+            interval = defaultInterval;
+            countdownElement.value = defaultCountdown;
+            intervalElement.value = defaultInterval;
+            arrowElement.textContent = '⬆'; // Reset arrow to default pointing up
+            previousTimestamp = null; // Clear the previous timestamp to avoid skipping time
+            startPauseBtn.textContent = 'Start';
+        }
+
+        function toggleStartPause() {
+            countdown = parseInt(countdownElement.value);
+            interval = parseInt(intervalElement.value);
+
+            if (running) {
+                stopTimer();
+                startPauseBtn.textContent = 'Start';
+            } else {
+                if (countdown < 1 || countdown > 999) {
+                    countdownElement.classList.add('invalid');
+                    errorMessage.textContent = '时长应在 1 到 999 之间';
+                    errorMessage.style.visibility = 'visible';
+                    setTimeout(() => {
+                        errorMessage.style.visibility = 'hidden';
+                        countdownElement.classList.remove('invalid');
+                    }, 2000);
+                    return;
+                }
+                if (interval < 100 || interval > 5000) {
+                    intervalElement.classList.add('invalid');
+                    errorMessage.textContent = '间隔应在 100 到 5000 之间';
+                    errorMessage.style.visibility = 'visible';
+                    setTimeout(() => {
+                        errorMessage.style.visibility = 'hidden';
+                        intervalElement.classList.remove('invalid');
+                    }, 2000);
+                    return;
+                }
+                startTimer();
+            }
+        }
+
+        // Event listeners for buttons
+        resetBtn.addEventListener('click', resetTimer);
+        startPauseBtn.addEventListener('click', toggleStartPause);
+
+        // Update countdown and interval in real-time
+        countdownElement.addEventListener('input', () => {
+            countdown = parseInt(countdownElement.value);
+        });
+
+        intervalElement.addEventListener('input', () => {
+            interval = parseInt(intervalElement.value);
+        });
+
+    </script>
+<p style="font-size: 1.5rem; margin-top: 30px; text-align: center;">跟随箭头，做出对应击球动作：正手高、低；反手高、低</p>
+</body>
+</html>
