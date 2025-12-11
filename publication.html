@@ -5,68 +5,48 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Baohua Yang's Homepage">
     <meta name="author" content="Baohua Yang">
 
     <title>Homepage</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-
-    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="navbar.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
 
 </head>
 
-<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- The #page-top ID is part of the scrolling feature - the data-bs-spy and data-bs-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#navbar">
 
     <!-- Static navbar -->
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">@</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="publication.html">Publication</a></li>
-                    <li><a href="tech.html">Technology</a></li>
-                    <li><a href="http://blog.csdn.net/yeasy" target="_blank">Blog</a></li>
-                    <li><a href="http://github.com/yeasy" target="_blank">Project</a></li>
-                    <li><a href="about.html">About</a></li>
+            <a class="navbar-brand" href="#">@</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="publication.html">Publication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tech.html">Technology</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://blog.csdn.net/yeasy" target="_blank">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://github.com/yeasy" target="_blank">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <form class="navbar-form" role="search" action="http://www.google.com/search"
-                          method="GET"
-                          target="_blank">
-                        <div class="form-group">
-                            <input type="text" name="q" class="form-control" id="content"  placeholder="Keyword">
-                        </div>
-                        <button type="submit" name="sitesearch"
-                                value="yeasy.github.io"  class="btn btn-default">Search</button>
-                    </form>
-                </ul>
+                <form class="d-flex" role="search" action="http://www.google.com/search"
+                      method="GET"
+                      target="_blank">
+                    <input type="hidden" name="sitesearch" value="yeasy.github.io">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Keyword" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>
@@ -81,9 +61,9 @@
 
     <!-- Begin page content -->
     <div class="container" >
-        <div class="panel panel-info">
-            <div class="panel-heading"><h2> Books</h2></div>
-            <div class="panel-body">
+        <div class="card border-info mb-3">
+            <div class="card-header"><h2> Books</h2></div>
+            <div class="card-body">
         <p>
             <strong>  区块链原理、设计与应用（第 2 版）</strong><br>
                A published book on enterprise blockchain and hyperledger technologies.
@@ -138,9 +118,9 @@
         </p>
             </div>
         </div>
-        <div class="panel panel-success">
-                <div class="panel-heading"><h2> Papers</h2></div>
-                <div class="panel-body">
+        <div class="card border-success mb-3">
+                <div class="card-header"><h2> Papers</h2></div>
+                <div class="card-body">
                     <h3> 2015 ~ </h3>
                     <ul>
                         <li>
@@ -204,9 +184,9 @@
                 </div>
         </div>
 
-        <div class="panel panel-primary">
-            <div class="panel-heading"><h2> Others</h2></div>
-            <div class="panel-body">
+        <div class="card border-primary mb-3">
+            <div class="card-header"><h2> Others</h2></div>
+            <div class="card-body">
                 <p>
                     <a href="static/small_talk_on_docker.html"><strong>Small Talk on Docker</strong></a><br>
                     一个关于 Docker 技术的干货 slides。
@@ -226,31 +206,23 @@
             </div>
         </div>
 
-    <div class="footer">
+    <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-            <p class="text-muted">Last Update: Oct 2, 2014</p>
+            <p class="text-muted">Last Update: Jan 7, 2025</p>
         </div>
         <div class="container">
-        <!-- Start of StatCounter Code -->
-        <script type="text/javascript">
-            var sc_project=4818950; var sc_invisible=0; var sc_partition=54; var sc_click_stat=1; var sc_security="b75e3067"; </script>
-        <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
-        <noscript><div class="statcounter"><a title="customisable counter" href="http://www.statcounter.com/free_hit_counter.html" target="_blank"><img class="statcounter" src="http://c.statcounter.com/4818950/0/b75e3067/0/" alt="customisable
+            <!-- Start of StatCounter Code -->
+            <script type="text/javascript">
+                var sc_project=4818950; var sc_invisible=0; var sc_partition=54; var sc_click_stat=1; var sc_security="b75e3067"; </script>
+            <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js" async></script>
+            <noscript><div class="statcounter"><a title="customisable counter" href="http://www.statcounter.com/free_hit_counter.html" target="_blank"><img class="statcounter" src="http://c.statcounter.com/4818950/0/b75e3067/0/" alt="customisable
 counter"></a></div></noscript>
-        <!-- End of StatCounter Code -->
+            <!-- End of StatCounter Code -->
         </div>
-    </div>
+    </footer>
 
-
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/scrolling-nav.js"></script>
+    <!-- Bootstrap 5 Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 
