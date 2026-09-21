@@ -4,6 +4,11 @@ html {
     min-height: 100%;
 }
 
+/* Override Bootstrap's smooth scrolling so links like publication.html#patents land on the section */
+:root {
+    scroll-behavior: auto;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #333;
@@ -11,20 +16,24 @@ body {
     padding-top: 1rem;
 }
 
-/* Main content area */
+/* Main content area: one 780px column on every page (804px minus 12px padding per side) */
 .container {
-    max-width: 960px;
+    max-width: 804px;
+}
+
+/* Start the first link of each nav row flush with the content column */
+@media (min-width: 992px) {
+    .navbar-nav .nav-item:first-child .nav-link {
+        padding-left: 0 !important;
+    }
+}
+
+.nav-pills .nav-link:first-child {
+    padding-left: 0 !important;
 }
 
 .page-header {
     padding: 2rem 0 1rem;
-}
-
-.page-header img {
-    max-width: 200px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 1.5rem;
 }
 
 /* Cards */
@@ -70,21 +79,12 @@ a:hover {
     font-size: 0.8rem;
 }
 
-/* Footer */
-.footer {
-    margin-top: 3rem !important;
-    border-top: 1px solid #e7e7e7;
-}
-
-.footer .text-muted {
-    font-size: 0.85rem;
-}
-
 /* Blockquotes / italics intro */
 .container > p > i {
     font-size: 1.1rem;
     color: #6c757d;
     display: block;
+    margin-top: 1.5rem;
     padding: 0.5rem 0 1rem;
     border-left: 3px solid #0d6efd;
     padding-left: 1rem;
@@ -98,10 +98,6 @@ address {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .page-header img {
-        max-width: 150px;
-    }
-
     .card-header h2 {
         font-size: 1.2rem;
     }
