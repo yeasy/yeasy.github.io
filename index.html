@@ -6,10 +6,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Baohua Yang - Bridging research and product innovation in AI, Agentic Systems, Blockchain and Fintech">
+    <meta name="description" content="Baohua Yang is a systems architect and technical leader in agentic AI, distributed systems, and security.">
     <meta name="author" content="Baohua Yang">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Baohua Yang - Systems Architect &amp; Technical Leader">
+    <meta property="og:description" content="Systems architect and technical leader who has spent nearly two decades turning frontier research into products at scale.">
+    <meta property="og:url" content="https://yeasy.github.io/">
+    <meta property="og:image" content="https://yeasy.github.io/img/me.png">
+    <meta name="twitter:card" content="summary">
 
-    <title>Baohua Yang - AI, Product & Engineering</title>
+    <title>Baohua Yang - Systems Architect &amp; Technical Leader</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -19,7 +25,26 @@
     <link href="navbar.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
+    <style>
+        .profile { max-width: 780px; margin: 2.5rem auto 3rem; color: #212529; }
+        .profile-head { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+        .profile-head .avatar { width: 136px; height: 136px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+        .profile-head h1 { font-size: 2.1rem; font-weight: 600; letter-spacing: -.01em; margin: 0 0 .25rem; }
+        .profile-head .tagline { color: #6c757d; font-size: 1.05rem; margin: 0 0 .9rem; }
+        .profile-head .tagline span { white-space: nowrap; }
+        .profile-links a { display: inline-block; font-size: .875rem; padding: .3rem .8rem; margin: 0 .35rem .35rem 0;
+            border: 1px solid #dee2e6; border-radius: 999px; color: #212529; text-decoration: none; }
+        .profile-links a:hover { border-color: #0d6efd; color: #0d6efd; }
+        .profile .summary { font-size: 1.15rem; line-height: 1.7; margin-bottom: 2rem; }
+        .highlights { padding-left: 1.1rem; margin: 0; }
+        .highlights li { margin-bottom: .55rem; line-height: 1.6; }
+        .highlights li::marker { color: #adb5bd; }
+        @media (max-width: 640px) {
+            .profile-head { flex-direction: column; text-align: center; gap: 1rem; }
+        }
+    </style>
 </head>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-bs-spy and data-bs-target are part of the built-in Bootstrap scrollspy function -->
@@ -29,61 +54,55 @@
     <!-- Static navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">@</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
                 aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="publication.html">Publication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="tech.html">Technology</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://yeasy.blogspot.com/" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="https://github.com/yeasy" target="_blank">Project</a>
+                    <li class="nav-item"><a class="nav-link" href="https://yeasy.blogspot.com/" target="_blank" rel="noopener">Blog</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 </ul>
-                <form class="d-flex" role="search" action="https://www.google.com/search" method="GET" target="_blank">
-                    <input type="hidden" name="sitesearch" value="yeasy.github.io">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Keyword" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>
 
     <!-- Begin page content -->
     <div class="container">
-        <div class="page-header">
-            <img src="img/me.png" class="img-fluid">
+        <div class="profile">
+            <header class="profile-head">
+                <img src="img/me.png" class="avatar" alt="Baohua Yang">
+                <div>
+                    <h1>Baohua Yang</h1>
+                    <p class="tagline"><span>Agentic AI</span> &middot; <span>Distributed Systems</span> &middot; <span>Security</span></p>
+                    <div class="profile-links">
+                        <a href="personal/cv_en.pdf" target="_blank" rel="noopener">Resume</a>
+                        <a href="https://www.linkedin.com/in/baohua" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://github.com/yeasy" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://scholar.google.com/citations?user=Lu8ceFIAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+                    </div>
+                </div>
+            </header>
+            <p class="summary">
+                Baohua Yang is a systems architect and technical leader who has spent nearly two decades turning frontier research into products at scale.
+            </p>
+            <ul class="highlights">
+                <li><strong>Agentic AI &amp; Security:</strong> Architected and shipped an AI agent for Oracle TSAM that diagnoses failures from monitoring data, raising accuracy from ~30% to 90%+, and built its safety layer against prompt injection and data leakage.</li>
+                <li><strong>Distributed Systems:</strong> Helped build one of the first enterprise blockchain platforms (<a href="https://www.lfdecentralizedtrust.org/projects/fabric" target="_blank" rel="noopener">Hyperledger Fabric</a>) at IBM, then architected Oracle Blockchain Platform, scaling it to 10,000 TPS and several hundred tenants.</li>
+                <li><strong>High Performance:</strong> Designed the packet-processing algorithm behind a 10 Gbps UTM gateway in 2007.</li>
+                <li><strong>Open Source:</strong> Founding contributor to Hyperledger and three-term member of its Technical Steering Committee; maintainer of several Hyperledger projects.</li>
+                <li><strong>Publications:</strong> <a href="publication.html#papers">20+ papers</a> (IEEE INFOCOM, ACM HotNets, IEEE Transactions on Computers), <a href="publication.html#patents">10 granted patents</a>, and open-source books with 100M+ reads.</li>
+            </ul>
         </div>
-        <div class="container">
-            <p>
-                Baohua Yang is a technology leader who bridges cutting-edge research with real-world product delivery. He currently leads AI research and development for the advanced enterprise products at Oracle, and previously drove innovations in FinTech and Cloud at IBM Research. With a passion for turning emerging technologies into products people actually use, his work spans AI systems, generative AI, agentic systems, Web3, and modern distributed architectures.
-            </p>
-            <p>
-                With 15+ years of hands-on experience as both a researcher and an engineer, he brings a rare combination of deep technical expertise and product thinking — from designing algorithms and system architectures to shipping enterprise-grade solutions that solve real problems.
-            </p>
-            <p>
-                As an active open-source contributor with <a href="https://github.com/yeasy">4,400+ GitHub followers</a>, he has contributed to major projects including <a href="https://www.hyperledger.org">Hyperledger Fabric</a>, <a href="https://openstack.org">OpenStack</a>, and <a href="https://opendaylight.org">OpenDaylight</a>, and has led projects such as <a href="https://github.com/hyperledger/cello">Hyperledger Cello</a> and <a href="https://github.com/hyperledger/fabric-sdk-py">Hyperledger Fabric-SDK-Py</a>. He previously served on the <a href="https://www.hyperledger.org/about/leadership">Technical Steering Committee (TSC)</a> and chaired the Technical Working Group in China (TWGC).
-            </p>
-            <p>
-                He has <a href="https://scholar.google.com/citations?user=Lu8ceFIAAAAJ">published</a> 20+ papers in top-tier venues (IEEE INFOCOM, IEEE Trans. on Computers, ACM SIGCOMM, etc.) and authored multiple <a href="publication.html">technical books</a> and <a href="patents.html">patents</a>. His open-source technical books — including <a href="https://github.com/yeasy/docker_practice">Docker Practice</a> and <a href="https://github.com/yeasy/blockchain_guide">Blockchain Guide</a> — have accumulated over 100 million reads, helping developers worldwide get hands-on with emerging technologies. He also serves as a TPC member and reviewer for leading academic conferences and journals.
-            </p>
-            <p>
-                Resume: <a href="personal/cv_en.pdf">PDF</a> | <a href="https://www.linkedin.com/in/baohua">LinkedIn</a>
-            </p>
-        </div>
-        <footer class="footer mt-auto py-3 bg-light">
-            <div class="container">
-                <p class="text-muted">Last Update: Mar 24, 2026</p>
-            </div>
+        <footer>
             <div class="container">
                 <!-- Start of StatCounter Code -->
                 <script type="text/javascript">
-                    var sc_project = 4818950; var sc_invisible = 0; var sc_partition = 54; var sc_click_stat = 1; var sc_security = "b75e3067"; </script>
+                    var sc_project = 4818950; var sc_invisible = 1; var sc_partition = 54; var sc_click_stat = 1; var sc_security = "b75e3067"; </script>
                 <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
                 <noscript>
                     <div class="statcounter"><a title="customisable counter"
