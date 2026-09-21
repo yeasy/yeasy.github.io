@@ -6,8 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Contact Baohua Yang - AI, Product & Engineering Leader">
+    <meta name="description" content="About Baohua Yang - systems architect and technical leader in agentic AI, distributed systems, and security.">
     <meta name="author" content="Baohua Yang">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About - Baohua Yang">
+    <meta property="og:description" content="About Baohua Yang - systems architect and technical leader in agentic AI, distributed systems, and security.">
+    <meta property="og:url" content="https://baohua.ai/about.html">
+    <meta property="og:image" content="https://baohua.ai/img/me.png">
+    <meta name="twitter:card" content="summary">
 
     <title>About - Baohua Yang</title>
 
@@ -19,6 +25,26 @@
     <link href="navbar.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        .about { margin: 2.5rem auto 3rem; color: #212529; }
+        .about h1 { font-size: 2.1rem; font-weight: 600; letter-spacing: -.01em; margin-bottom: 1.25rem; }
+        .about h2 { font-size: 1.15rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+            color: #6c757d; margin: 2.5rem 0 1rem; }
+        .about .intro p { font-size: 1.08rem; line-height: 1.75; }
+        .timeline { list-style: none; padding: 0; margin: 0; border-left: 2px solid #e9ecef; }
+        .timeline li { position: relative; padding: 0 0 1.4rem 1.4rem; }
+        .timeline li::before { content: ""; position: absolute; left: -7px; top: .55rem; width: 12px; height: 12px;
+            border-radius: 50%; background: #fff; border: 2px solid #adb5bd; }
+        .timeline li.current::before { border-color: #0d6efd; background: #0d6efd; }
+        .timeline .when { font-size: .85rem; color: #6c757d; font-variant-numeric: tabular-nums; }
+        .timeline .role { font-weight: 600; }
+        .timeline .org { color: #495057; }
+        .timeline p { margin: .2rem 0 0; color: #495057; line-height: 1.6; }
+        .contact { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+        .contact address { margin: 0; }
+        @media (max-width: 640px) { .contact { flex-direction: column; align-items: flex-start; gap: 1rem; } }
+    </style>
 
 </head>
 
@@ -29,61 +55,92 @@
     <!-- Static navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">@</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
                 aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="publication.html">Publication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
                     <li class="nav-item"><a class="nav-link" href="tech.html">Technology</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://yeasy.blogspot.com/" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="https://github.com/yeasy" target="_blank">Project</a>
+                    <li class="nav-item"><a class="nav-link" href="https://yeasy.blogspot.com/" target="_blank" rel="noopener">Blog</a>
                     </li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
                 </ul>
-                <form class="d-flex" role="search" action="https://www.google.com/search" method="GET" target="_blank">
-                    <input type="hidden" name="sitesearch" value="yeasy.github.io">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Keyword" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>
 
     <!-- Begin page content -->
     <div class="container">
-        <div class="page-header">
-            <h2>Baohua Yang</h2>
-            <p style="font-style: italic; color: #555;">Researcher | Product Builder | Engineer</p>
-            <p>
-                I am passionate about bridging the gap between research innovation and practical products. With experience across academic research, product management, and hands-on engineering, I enjoy taking emerging technologies — whether AI, blockchain, or distributed systems — and turning them into tools that people find useful and delightful.
-            </p>
-            <p>
-                My career has taken me from publishing papers at top venues like IEEE INFOCOM to building enterprise products at Oracle and IBM Research. Along the way, I've authored popular open-source books on Docker (25,900+ GitHub stars), Blockchain (7,000+ stars), and AI, reaching hundreds of thousands of developers worldwide. On <a href="https://github.com/yeasy" target="_blank">GitHub</a>, I maintain 86 repositories with 4,400+ followers, and I'm a member of the <a href="https://www.hyperledger.org" target="_blank">Hyperledger</a> organization and an Arctic Code Vault Contributor.
-            </p>
-            <h4>Get in Touch</h4>
-            <address>
-                <a href="mailto:yangbaohua@gmail.com">yangbaohua@gmail.com</a><br>
-                <a href="https://www.linkedin.com/in/baohua" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/yeasy" target="_blank">GitHub</a> |
-                <a href="https://scholar.google.com/citations?user=Lu8ceFIAAAAJ" target="_blank">Google Scholar</a>
-            </address>
-            <img src="img/code_homepage.png" class="img-fluid mt-3">
-        </div>
+        <main class="about">
+            <h1>About</h1>
+            <div class="intro">
+                <p>
+                    I'm a systems architect who enjoys the space between a research idea and a system people rely on every day. I started out in high-performance networking, moved into enterprise blockchain at IBM Research, and today I work on agentic AI at Oracle, with a focus on making AI agents reliable and safe enough for production.
+                </p>
+                <p>
+                    Writing is how I learn. Most of my open-source books began as notes to myself, and I still write guides whenever a new field catches my attention, from Docker and blockchain to agentic AI.
+                </p>
+            </div>
+
+            <h2>Experience</h2>
+            <ul class="timeline">
+                <li class="current">
+                    <div class="when">2017 &ndash; Present</div>
+                    <div><span class="role">Principal Architect</span> &middot; <span class="org">Oracle</span></div>
+                    <p>Architecture of Oracle Blockchain Platform and Oracle TSAM; enterprise AI agents and their safety layer.</p>
+                </li>
+                <li>
+                    <div class="when">2017 &ndash; 2021</div>
+                    <div><span class="role">Technical Steering Committee Member</span> &middot; <span class="org">Hyperledger (now <a href="https://www.lfdecentralizedtrust.org" target="_blank" rel="noopener">LF Decentralized Trust</a>)</span></div>
+                    <p>Three terms shaping technical strategy and governance across Hyperledger projects.</p>
+                </li>
+                <li>
+                    <div class="when">2013 &ndash; 2017</div>
+                    <div><span class="role">Research Scientist</span> &middot; <span class="org">IBM Research</span></div>
+                    <p>Early designer and core developer of <a href="https://www.lfdecentralizedtrust.org/projects/fabric" target="_blank" rel="noopener">Hyperledger Fabric</a>; led the applied research behind IBM's enterprise blockchain platforms.</p>
+                </li>
+            </ul>
+
+            <h2>Education</h2>
+            <ul class="timeline">
+                <li>
+                    <div class="when">2007 &ndash; 2013</div>
+                    <div><span class="role">Ph.D., Control Science and Engineering</span> &middot; <span class="org">Tsinghua University</span></div>
+                    <p>High-performance networking and security; built a 10 Gbps UTM system. IBM Ph.D. Fellowship (2011).</p>
+                </li>
+                <li>
+                    <div class="when">2010 &ndash; 2011</div>
+                    <div><span class="role">Visiting Scholar, EECS</span> &middot; <span class="org">University of California, Berkeley</span></div>
+                    <p>Software-defined and data-center networking.</p>
+                </li>
+                <li>
+                    <div class="when">2003 &ndash; 2007</div>
+                    <div><span class="role">B.S. and B.E.</span> &middot; <span class="org">Tsinghua University</span></div>
+                </li>
+            </ul>
+
+            <h2>Get in Touch</h2>
+            <div class="contact">
+                <address>
+                    <a href="mailto:yangbaohua@gmail.com">yangbaohua@gmail.com</a><br>
+                    <a href="https://www.linkedin.com/in/baohua" target="_blank" rel="noopener">LinkedIn</a> |
+                    <a href="https://github.com/yeasy" target="_blank" rel="noopener">GitHub</a> |
+                    <a href="https://scholar.google.com/citations?user=Lu8ceFIAAAAJ" target="_blank" rel="noopener">Google Scholar</a> |
+                    <a href="https://yeasy.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+                </address>
+                <img src="img/code_homepage.png" class="img-fluid" alt="QR code for this homepage" width="120">
+            </div>
+        </main>
     </div>
 
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <p class="text-muted">Last Update: Mar 24, 2026</p>
-        </div>
+    <footer>
         <div class="container">
             <!-- Start of StatCounter Code -->
             <script type="text/javascript">
-                var sc_project = 4818950; var sc_invisible = 0; var sc_partition = 54; var sc_click_stat = 1; var sc_security = "b75e3067"; </script>
+                var sc_project = 4818950; var sc_invisible = 1; var sc_partition = 54; var sc_click_stat = 1; var sc_security = "b75e3067"; </script>
             <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
             <noscript>
                 <div class="statcounter"><a title="customisable counter"

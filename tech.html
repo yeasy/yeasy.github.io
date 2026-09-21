@@ -6,8 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Baohua Yang's technology expertise - AI, Agentic Systems, Blockchain, Cloud & more">
+    <meta name="description" content="Baohua Yang's technology expertise - agentic AI, distributed systems, and security">
     <meta name="author" content="Baohua Yang">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Technology - Baohua Yang">
+    <meta property="og:description" content="Baohua Yang's technology expertise - agentic AI, distributed systems, and security">
+    <meta property="og:url" content="https://baohua.ai/tech.html">
+    <meta property="og:image" content="https://baohua.ai/img/me.png">
+    <meta name="twitter:card" content="summary">
 
     <title>Technology - Baohua Yang</title>
 
@@ -19,6 +25,7 @@
     <link href="navbar.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
 </head>
 
@@ -29,28 +36,20 @@
     <!-- Static navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">@</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
                 aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="publication.html">Publication</a></li>
+                    <li class="nav-item"><a class="nav-link" href="publication.html">Publications</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="tech.html">Technology</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="https://yeasy.blogspot.com/" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="https://github.com/yeasy" target="_blank">Project</a>
+                    <li class="nav-item"><a class="nav-link" href="https://yeasy.blogspot.com/" target="_blank" rel="noopener">Blog</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 </ul>
-                <form class="d-flex" role="search" action="https://www.google.com/search" method="GET" target="_blank">
-                    <input type="hidden" name="sitesearch" value="yeasy.github.io">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Keyword" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
     </nav>
@@ -68,107 +67,126 @@
     <div class="container">
         <div class="card border-info mb-3">
             <div class="card-header">
-                <h2> AI and Agentic System</h2>
+                <h2> Agentic AI</h2>
             </div>
             <div class="card-body">
-                <strong> Agentic AI </strong>
+                <strong> Architecture </strong>
                 <ul>
-                    <li><a href="https://modelcontextprotocol.io">MCP</a></li>
-                    <li><a href="https://langchain.com">LangChain</a> / <a
-                            href="https://langchain-ai.github.io/langgraph/">LangGraph</a></li>
-                    <li><a href="https://microsoft.github.io/autogen/">AutoGen</a></li>
-                    <li><a href="https://crewai.com">CrewAI</a></li>
-                    <li><a href="https://github.com/yeasy/ask">ASK</a> — Agent Skills Package Manager</li>
+                    <li>Multi-agent orchestration (supervisor pattern)</li>
+                    <li><a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">MCP</a> and tool integration</li>
+                    <li>Context and memory management</li>
+                    <li>RAG</li>
+                    <li>Evaluation and telemetry</li>
                 </ul>
-                <strong> Generative Models </strong>
+                <strong> Models </strong>
                 <ul>
                     <li>LLMs (GPT, Claude, Llama)</li>
-                    <li>Diffusion Models</li>
+                    <li>LLM inference (<a href="https://vllm.ai" target="_blank" rel="noopener">vLLM</a>)</li>
+                    <li>Diffusion models</li>
                 </ul>
-                <strong> AI Engineering </strong>
+                <strong> Frameworks and Tools </strong>
                 <ul>
-                    <li>RAG</li>
-                    <li>Context Engineering</li>
-                    <li>Prompt Engineering (CoT, ToT)</li>
-                    <li>Eval</li>
-                </ul>
-                <strong> Frameworks </strong>
-                <ul>
-                    <li><a href="https://pytorch.org">PyTorch</a></li>
-                    <li><a href="https://huggingface.co">Hugging Face</a></li>
-                    <li><a href="https://vllm.ai">vLLM</a></li>
+                    <li><a href="https://www.langchain.com" target="_blank" rel="noopener">LangChain</a> / <a href="https://langchain-ai.github.io/langgraph/" target="_blank" rel="noopener">LangGraph</a></li>
+                    <li><a href="https://microsoft.github.io/autogen/" target="_blank" rel="noopener">AutoGen</a></li>
+                    <li><a href="https://www.crewai.com" target="_blank" rel="noopener">CrewAI</a></li>
+                    <li><a href="https://pytorch.org" target="_blank" rel="noopener">PyTorch</a>, <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a></li>
+                    <li><a href="https://github.com/yeasy/ask" target="_blank" rel="noopener">ASK</a> &mdash; Agent Skills Package Manager</li>
                 </ul>
             </div>
         </div>
         <div class="card border-info mb-3">
             <div class="card-header">
-                <h2> Fintech and Data Systems</h2>
+                <h2> Distributed Systems</h2>
             </div>
             <div class="card-body">
-                <strong> Blockchain & Web3 </strong>
+                <strong> Core </strong>
                 <ul>
-                    <li><a href="https://www.hyperledger.org">Hyperledger</a></li>
-                    <li><a href="https://ethereum.org">Ethereum</a></li>
-                    <li><a href="https://bitcoin.org">Bitcoin</a></li>
+                    <li>High-performance systems</li>
+                    <li>Consensus</li>
+                    <li>Data-center networking</li>
+                    <li>Monitoring and failure diagnosis</li>
+                </ul>
+                <strong> Blockchain </strong>
+                <ul>
+                    <li><a href="https://www.lfdecentralizedtrust.org/projects/fabric" target="_blank" rel="noopener">Hyperledger Fabric</a></li>
+                    <li><a href="https://ethereum.org" target="_blank" rel="noopener">Ethereum</a></li>
+                    <li><a href="https://bitcoin.org" target="_blank" rel="noopener">Bitcoin</a></li>
                     <li>DeFi</li>
+                </ul>
+                <strong> Cloud Native </strong>
+                <ul>
+                    <li><a href="https://www.docker.com" target="_blank" rel="noopener">Docker</a></li>
+                    <li><a href="https://kubernetes.io" target="_blank" rel="noopener">Kubernetes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card border-info mb-3">
+            <div class="card-header">
+                <h2> Security</h2>
+            </div>
+            <div class="card-body">
+                <strong> AI Security </strong>
+                <ul>
+                    <li>Prompt-injection and jailbreak defense (<a href="https://github.com/NVIDIA-NeMo/Guardrails" target="_blank" rel="noopener">NVIDIA NeMo Guardrails</a>)</li>
+                    <li>Data-leakage prevention for AI agents</li>
+                </ul>
+                <strong> Authorization and Identity </strong>
+                <ul>
+                    <li>Policy-as-code authorization (<a href="https://www.openpolicyagent.org" target="_blank" rel="noopener">OPA</a>)</li>
+                    <li>PKI and X.509 identity, CA hierarchy and revocation</li>
+                </ul>
+                <strong> Network Security </strong>
+                <ul>
+                    <li>Unified threat management (UTM)</li>
+                    <li>Intrusion detection and packet classification</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card border-info mb-3">
+            <div class="card-header">
+                <h2> Programming Languages</h2>
+            </div>
+            <div class="card-body">
+                <strong> Primary </strong>
+                <ul>
+                    <li>Python</li>
+                    <li>Go</li>
+                    <li>C/C++</li>
+                </ul>
+                <strong> Also </strong>
+                <ul>
+                    <li>Java</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card border-secondary mb-3">
+            <div class="card-header">
+                <h2> Earlier Work</h2>
+            </div>
+            <div class="card-body">
+                <strong> Cloud and SDN </strong>
+                <ul>
+                    <li><a href="https://www.openstack.org" target="_blank" rel="noopener">OpenStack</a></li>
+                    <li><a href="https://www.openvswitch.org" target="_blank" rel="noopener">Open vSwitch</a></li>
+                    <li><a href="https://www.opendaylight.org" target="_blank" rel="noopener">OpenDaylight</a></li>
+                    <li><a href="https://mesos.apache.org" target="_blank" rel="noopener">Mesos</a></li>
+                    <li><a href="https://www.cloudfoundry.org" target="_blank" rel="noopener">Cloud Foundry</a></li>
                 </ul>
                 <strong> Big Data </strong>
                 <ul>
-                    <li><a href="https://spark.apache.org/">Spark</a></li>
-                    <li><a href="https://www.elastic.co">Elasticsearch</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="card border-info mb-3">
-            <div class="card-header">
-                <h2> Cloud & Infrastructure</h2>
-            </div>
-            <div class="card-body">
-                <strong> Proficient </strong>
-                <ul>
-                    <li><a href="https://openstack.org">OpenStack</a></li>
-                    <li><a href="https://openvswitch.org">Open vSwitch</a></li>
-                    <li><a href="https://opendaylight.org">OpenDaylight</a></li>
-                    <li><a href="https://www.docker.com">Docker</a></li>
-                    <li><a href="https://kubernetes.io">Kubernetes</a></li>
-                    <li><a href="https://mesos.apache.org">Mesos</a></li>
-                </ul>
-                <strong> Familiar </strong>
-                <ul>
-                    <li><a href="https://www.cloudfoundry.org">CloudFoundry</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="card border-info mb-3">
-            <div class="card-header">
-                <h2> Programming Languages </h2>
-            </div>
-            <div class="card-body">
-                <strong> Proficient </strong>
-                <ul>
-                    <li>C/C++</li>
-                    <li>Go</li>
-                    <li>Java</li>
-                    <li>JavaScript</li>
-                    <li>Python</li>
-                </ul>
-                <strong> Familiar </strong>
-                <ul>
-                    <li>CSS</li>
-                    <li>HTML</li>
+                    <li><a href="https://spark.apache.org/" target="_blank" rel="noopener">Spark</a></li>
+                    <li><a href="https://www.elastic.co" target="_blank" rel="noopener">Elasticsearch</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <p class="text-muted">Last Update: Mar 24, 2026</p>
-        </div>
+    <footer>
         <div class="container">
             <!-- Start of StatCounter Code -->
             <script type="text/javascript">
-                var sc_project = 4818950; var sc_invisible = 0; var sc_partition = 54; var sc_click_stat = 1; var sc_security = "b75e3067"; </script>
+                var sc_project = 4818950; var sc_invisible = 1; var sc_partition = 54; var sc_click_stat = 1; var sc_security = "b75e3067"; </script>
             <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
             <noscript>
                 <div class="statcounter"><a title="customisable counter"
